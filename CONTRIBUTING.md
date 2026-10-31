@@ -12,7 +12,7 @@ This project is run like a team project: every change lands on `main` through a 
 3. **Keep PRs to one slice.** A PR should be small enough to review in one sitting. Split larger issues into several PRs.
 4. **Open a pull request** into `main`. Link the issue with `Closes #<number>` in the description so merging closes it and moves its card to **Done**.
 5. **Review before merging.** Every PR gets a full code review. Review comments are posted on the PR, and all conversations must be resolved before it can merge.
-6. **Squash merge.** The PR title becomes the commit on `main`, so write it as a clear summary of the change. The branch is deleted automatically after merge.
+6. **Squash merge.** The PR title and description become the commit on `main`, so write them as a clear summary of the change and remove unused template text. Commit trailers on the branch, such as `Co-Authored-By`, are dropped by the squash, so put any that should be kept at the end of the PR description. The branch is deleted automatically after merge.
 
 ## Branch protection
 
@@ -20,26 +20,14 @@ This project is run like a team project: every change lands on `main` through a 
 
 - Changes require a pull request (no direct pushes)
 - All review conversations must be resolved
-- CI must pass
+- The **Typecheck and test** CI check must pass
 - Squash merge only, with linear history
 - No force pushes or deletion
 
 ## Checks
 
-CI runs on every pull request and on pushes to `main`. Run the same checks locally before pushing:
-
-```sh
-npm run typecheck
-npm test
-```
+CI runs on every pull request and on pushes to `main`. Before pushing, run the same typecheck and test scripts locally; see the commands in the [README](README.md#commands).
 
 ## Local development
 
-Requires Node 24.3 or later.
-
-```sh
-npm i
-npm run dev
-```
-
-The app runs at http://localhost:44100.
+Requires Node 24.3 or later. Setup and dev server commands are in the [README](README.md#commands). The app runs at http://localhost:44100.
